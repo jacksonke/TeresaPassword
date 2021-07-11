@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/page_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabbar">
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tabbar"
+        android:orientation="horizontal"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tab_item_one">
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/tab_name_generate_password">
+            </TextView>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/tab_item_two">
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/tab_name_settings">
+            </TextView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

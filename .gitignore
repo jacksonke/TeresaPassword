@@ -63,3 +63,9 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+.DS_Store
+.project
+.settings
+.idea
+objectbox-models

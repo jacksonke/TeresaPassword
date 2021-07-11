@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et_site_name"
+        android:hint="aaaaaa"
+        android:enabled="false"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:id="@+id/pass_type_group"
+        android:layout_below="@id/et_site_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_btn_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/radio_letter"/>
+
+        <RadioButton
+            android:id="@+id/radio_btn_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_number"/>
+
+        <RadioButton
+            android:id="@+id/radio_btn_letter_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_letter_number"/>
+
+        <RadioButton
+            android:id="@+id/radio_btn_letter_number_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_letter_number_symbol"/>
+
+
+    </RadioGroup>
+    <GridLayout
+        android:layout_below="@id/pass_type_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <Button
+            android:id="@+id/dialog_cancel"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:text="@string/btn_text_cancel"/>
+
+        <Button
+            android:id="@+id/dialog_update"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="@string/btn_text_update"/>
+
+    </GridLayout>
+</RelativeLayout>
