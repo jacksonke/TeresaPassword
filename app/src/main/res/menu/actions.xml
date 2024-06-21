@@ -4,17 +4,16 @@
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<item
-		android:id="@+id/search"
-		app:actionViewClass="android.support.v7.widget.SearchView"
+		android:id="@+id/menu_id_search"
+		android:title=""
+		app:actionViewClass="androidx.appcompat.widget.SearchView"
 		android:icon="@drawable/ic_action_search"
-		app:showAsAction="ifRoom|collapseActionView"
-		android:title="@string/filter">
+		app:showAsAction="ifRoom|collapseActionView">
 	</item>
     <item
         android:id="@+id/menu_id_add"
         android:icon="@drawable/ic_action_add"
-        app:showAsAction="ifRoom|collapseActionView"
-        android:title="@string/filter">
+        app:showAsAction="ifRoom|collapseActionView">
     </item>
 
 </menu>

@@ -51,7 +51,7 @@ set_target_properties( # Specifies the target library.
                        # PROJECT_SOURCE_DIR 和 CMAKE_SOURCE_DIR 的差别 https://stackoverflow.com/questions/32028667/are-cmake-source-dir-and-project-source-dir-the-same-in-cmake/32030551
                        # CMAKE_SOURCE_DIR CMakeList.txt 所在的文件夹
                        # Provides the path to the library you want to import.
-                       ${CMAKE_SOURCE_DIR}/prebuilt-libs/openssl/arch-${ANDROID_ABI}/lib/libcrypto.a )
+                       ${CMAKE_SOURCE_DIR}/prebuilt-libs/openssl/${ANDROID_ABI}/lib/libcrypto.a )
 
 ##### ssl
 add_library( ssl
@@ -65,7 +65,7 @@ set_target_properties( # Specifies the target library.
                        PROPERTIES IMPORTED_LOCATION
 
                        # Provides the path to the library you want to import.
-                       ${CMAKE_SOURCE_DIR}/prebuilt-libs/openssl/arch-${ANDROID_ABI}/lib/libssl.a )
+                       ${CMAKE_SOURCE_DIR}/prebuilt-libs/openssl/${ANDROID_ABI}/lib/libssl.a )
 
 
 include_directories( prebuilt-libs/openssl/include/ )

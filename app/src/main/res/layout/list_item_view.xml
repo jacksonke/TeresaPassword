@@ -7,9 +7,7 @@
     android:paddingTop="6dp"
     android:paddingBottom="6dp"
     android:paddingEnd="12dp"
-    android:paddingRight="12dp"
-    android:background="@android:color/transparent"
-    android:paddingLeft="?android:attr/listPreferredItemPaddingLeft">
+    android:background="@android:color/transparent">
 
     <ImageView
         android:id="@+id/btn_del"
@@ -19,7 +17,6 @@
         android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:paddingEnd="12dp"
-        android:paddingRight="12dp"
         android:focusable="false"
         android:clickable="true"
         android:gravity="center_vertical" />

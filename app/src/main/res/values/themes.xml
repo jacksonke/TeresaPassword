@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TeresaPassword" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blue</item>
+        <!--<item name="android:textColorPrimary">@android:color/white</item>-->
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+<!--        <item name="android:windowLightStatusBar">true</item>-->
+        <item name="colorSurface">@color/blue</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.TeresaPassword" parent="Base.Theme.TeresaPassword" />
+</resources>
