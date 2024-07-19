@@ -26,11 +26,11 @@ import java.lang.ref.WeakReference
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
+class ItemListFragment : ListFragment(), ItemListAdapter.OnItemSubViewClickListener
     , SearchView.OnQueryTextListener, SearchView.OnCloseListener {
 
     companion object {
-        const val TAG = "FirstFragment"
+        const val TAG = "ItemListFragment"
     }
     private var _binding: FragmentFirstBinding? = null
 
@@ -43,17 +43,17 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
     private val STATE_QUERY = "q"
     private val STATE_MODEL = "m"
 
-    internal class MyHandler(fragment: FirstFragment?) : Handler(){
-        private var fragmentRef: WeakReference<FirstFragment?> = WeakReference(null)
+    internal class MyHandler(fragment: ItemListFragment?) : Handler(){
+        private var fragmentRef: WeakReference<ItemListFragment?> = WeakReference(null)
 
 
         init {
-            fragmentRef = WeakReference<FirstFragment?>(fragment)
+            fragmentRef = WeakReference<ItemListFragment?>(fragment)
         }
 
         override fun handleMessage(msg: Message) {
-            val fragment: FirstFragment = fragmentRef.get() ?: return
-            val adapter : MyArrayAdapter<*>? = fragment.listAdapter as? MyArrayAdapter<*>
+            val fragment: ItemListFragment = fragmentRef.get() ?: return
+            val adapter : ItemListAdapter<*>? = fragment.listAdapter as? ItemListAdapter<*>
             if (msg.what == Constants.MSG_ITEM_ADDED) {
                 Log.d(TAG, "handleMessage: new item added")
 
@@ -99,9 +99,9 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
                     else -> true
                 }
             }
-            // Switch FirstFragment to FragmentSettings and then back to FirstFragment,
-            // new FirstFragment will be created. So it is necessary to delete menuprovider
-            // when old FirstFragment is destroyed.
+            // Switch ItemListFragment to SettingsFragment and then back to ItemListFragment,
+            // new ItemListFragment will be created. So it is necessary to delete menuprovider
+            // when old ItemListFragment is destroyed.
         }, viewLifecycleOwner)
 
         if (savedInstanceState == null){
@@ -117,7 +117,7 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
     }
 
     override fun onListItemClick(l: ListView, v: View, position: Int, id: Long) {
-        val adapter : MyArrayAdapter<*>? = listAdapter as? MyArrayAdapter<*>
+        val adapter : ItemListAdapter<*>? = listAdapter as? ItemListAdapter<*>
         val pass = Generator.instance()
             .generate(adapter!!.getItem(position) as SiteEntity)
         Toast.makeText(
@@ -148,21 +148,21 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
 
 
     private fun initAdapter() {
-        val myArrayAdapter: MyArrayAdapter<SiteEntity> = MyArrayAdapter<SiteEntity>(
+        val itemListAdapter: ItemListAdapter<SiteEntity> = ItemListAdapter<SiteEntity>(
             requireActivity(),
             R.layout.list_item_view,
             R.id.text1,
             DBHelper.instance.queryAll()
         )
-        myArrayAdapter.setOnItemSubViewClickListener(this)
-        listAdapter = myArrayAdapter
+        itemListAdapter.setOnItemSubViewClickListener(this)
+        listAdapter = itemListAdapter
     }
 
     override fun onItemSubViewDelClicked(position: Int, view: View) {
 
         if (view.id == R.id.btn_del) {
             // kotlin safe cast
-            val adapter : MyArrayAdapter<*>? = listAdapter as? MyArrayAdapter<*>
+            val adapter : ItemListAdapter<*>? = listAdapter as? ItemListAdapter<*>
             val siteEntity = adapter?.getItem(position)
             if (siteEntity is SiteEntity){
                 // kotlin smart cast
@@ -183,11 +183,11 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
             ft.addToBackStack(null)
 
             // kotlin safe cast
-            val adapter : MyArrayAdapter<*>? = listAdapter as? MyArrayAdapter<*>
+            val adapter : ItemListAdapter<*>? = listAdapter as? ItemListAdapter<*>
             val siteEntity = adapter?.getItem(position)
 
             // Create and show the dialog.
-            val newFragment = EditItemFragment()
+            val newFragment = EditItemDialogFragment()
             if (siteEntity is SiteEntity){
                 newFragment.setTarget(siteEntity)
             }
@@ -208,7 +208,7 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
         ft.addToBackStack(null)
 
         // Create and show the dialog.
-        val newFragment = AddEntityFragment()
+        val newFragment = AddItemDialogFragment()
         newFragment.setHandler(mHandler)
         newFragment.show(ft, "dialog")
         return true
@@ -223,7 +223,7 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        val adapter : MyArrayAdapter<*>? = listAdapter as? MyArrayAdapter<*>
+        val adapter : ItemListAdapter<*>? = listAdapter as? ItemListAdapter<*>
         if (newText.isNullOrEmpty()){
             adapter?.filter?.filter("")
         } else {
@@ -233,7 +233,7 @@ class FirstFragment : ListFragment(), MyArrayAdapter.OnItemSubViewClickListener
     }
 
     override fun onClose(): Boolean {
-        val adapter : MyArrayAdapter<*>? = listAdapter as? MyArrayAdapter<*>
+        val adapter : ItemListAdapter<*>? = listAdapter as? ItemListAdapter<*>
         adapter!!.filter.filter("")
         return true
     }

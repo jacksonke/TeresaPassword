@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.jacksonke.teresapassword.FirstFragment"
+        android:name="com.jacksonke.teresapassword.ItemListFragment"
         android:label="@string/title_page_list">
 
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/FragmentSettings"
-        android:name="com.jacksonke.teresapassword.FragmentSettings"
+        android:name="com.jacksonke.teresapassword.SettingsFragment"
         android:label="@string/title_page_settings">
 
         <action

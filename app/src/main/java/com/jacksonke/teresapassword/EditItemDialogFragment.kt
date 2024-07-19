@@ -7,16 +7,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.jacksonke.teresapassword.databinding.FragmentAddEntityBinding
 import com.jacksonke.teresapassword.databinding.FragmentEditItemBinding
 
 
-class EditItemFragment : DialogFragment(), View.OnClickListener {
+class EditItemDialogFragment : DialogFragment(), View.OnClickListener {
 
     private var _binding:FragmentEditItemBinding? = null
 

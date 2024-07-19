@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 
-class MyArrayAdapter<T> : ArrayAdapter<Any?> {
+class ItemListAdapter<T> : ArrayAdapter<Any?> {
     private var itemSubViewClickListener: OnItemSubViewClickListener? = null
 
     constructor(context: Context, resource: Int) : super(context, resource)
@@ -66,6 +66,6 @@ class MyArrayAdapter<T> : ArrayAdapter<Any?> {
     }
 
     companion object {
-        private const val TAG = "MyArrayAdapter"
+        private const val TAG = "ItemListAdapter"
     }
 }

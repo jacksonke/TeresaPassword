@@ -6,12 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.RadioGroup
 import androidx.fragment.app.DialogFragment
 import com.jacksonke.teresapassword.databinding.FragmentAddEntityBinding
 
-class AddEntityFragment : DialogFragment(), View.OnClickListener,
+class AddItemDialogFragment : DialogFragment(), View.OnClickListener,
     RadioGroup.OnCheckedChangeListener {
 
     private var _binding: FragmentAddEntityBinding? = null

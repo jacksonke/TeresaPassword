@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import io.objectbox.android.BuildConfig
 
 
-class FragmentSettings : PreferenceFragmentCompat() {
+class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.prefs_settings)
 
@@ -18,5 +17,6 @@ class FragmentSettings : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        requireActivity().actionBar?.setDisplayHomeAsUpEnabled(false)
     }
 }
